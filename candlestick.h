@@ -7,7 +7,6 @@
 #include <sstream>
 #include <algorithm>
 #include <map>
-#include <conio.h>
 #include <windows.h>
 using namespace std;
 
@@ -15,6 +14,9 @@ vector<string> split(string line, char delimiter);
 void gotoxy(int x, int y);
 void printsquare(int xi, int yi, int width, double height);
 void printline(int xi, int yi, int width, double height);
+void resetTextColor();
+void setTextColorRed();
+void setTextColorGreen();
 
 class exchangedata {
 	friend class candlestick;

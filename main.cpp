@@ -39,8 +39,9 @@ int main() {
     cout << "0. Exit" << endl;
 
     while (true) {
-        int c = _getch();
-        if (c == '0')
+        int c;
+        cin>>c;
+        if (c == 0)
             break;
 
         c %= trade.size();
