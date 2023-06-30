@@ -22,20 +22,17 @@ vector<string> split(string line, char delimiter) {
 
 // Function to set the cursor position in the console
 void gotoxy(int x, int y) {
-    initscr();  // Initialize ncurses
-    move(y, x); // Move the cursor to the specified coordinates
-    refresh();  // Refresh the screen
-    endwin();   // End ncurses
+    printf("\033[%d;%dH", y, x);
 }
 
 // Function to print a line in the text-based plot
 void printline(int xi, int yi, int width, double height) {
     xi += width / 2;
     if (height < 0) {
-        SetConsoleTextAttribute(h, 12); // Set text color to red
+        setTextColorRed();; // Set text color to red
         height *= (-1);
     } else {
-        SetConsoleTextAttribute(h, 10); // Set text color to green
+        setTextColorGreen(); // Set text color to green
     }
     if (height < 1 && height >= 0) {
         height = 1;
@@ -47,16 +44,16 @@ void printline(int xi, int yi, int width, double height) {
         cout << '|';  // Print a vertical line character
     }
 
-    SetConsoleTextAttribute(h, 7); // Set text color back to white
+    resetTextColor(); // Set text color back to white
 }
 
 // Function to print a square in the text-based plot
 void printsquare(int xi, int yi, int width, double height) {
     if (height < 0) {
-        SetConsoleTextAttribute(h, 12); // Set text color to red
+        setTextColorRed();; // Set text color to red
         height *= -1;
     } else {
-        SetConsoleTextAttribute(h, 10); // Set text color to green
+        setTextColorGreen(); // Set text color to green
     }
 
     if (height < 1 && height >= 0) {
@@ -70,7 +67,7 @@ void printsquare(int xi, int yi, int width, double height) {
         }
     }
 
-    SetConsoleTextAttribute(h, 7); // Set text color back to white
+resetTextColor(); // Set text color back to white
 }
 
 // Overloaded insertion operator to output vector of exchangedata objects to an output stream
@@ -216,10 +213,9 @@ void candlestick::printcandles(vector<candlestick> cdst, string side, string cur
 
     // Printing separator lines
     for (int i = 0; i < 5; i++) {
-        SetConsoleTextAttribute(h, 8);
         gotoxy(21, (i * 6) + 1);
         cout << "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -";
-        SetConsoleTextAttribute(h, 7);
+        resetTextColor();
     }
 
     int gap = (100 / (2 * candles.size()));
@@ -253,10 +249,10 @@ void candlestick::printcandles(vector<candlestick> cdst, string side, string cur
                 printsquare(u, v - ((candles[i / 2].close - min_low) / val), gap, ((candles[i / 2].open - candles[i / 2].close) / -val));
             }
 
-            SetConsoleTextAttribute(h, 14);
+            // SetConsoleTextAttribute(h, 14);
             gotoxy(u, v + 3);
             cout << candles[i / 2].date.substr(5);
-            SetConsoleTextAttribute(h, 7);
+            resetTextColor();
         }
 
         u += (gap);
@@ -268,7 +264,7 @@ void candlestick::printcandles(vector<candlestick> cdst, string side, string cur
         cout << char(178);
 
     // Printing the price scale on the left side
-    SetConsoleTextAttribute(h, 14);
+    // SetConsoleTextAttribute(h, 14);
     for (double i = 1, j = 1; i >= 0; i -= 0.25, j += 6) {
         gotoxy(1, j);
         cout << "$" << ((max_high - min_low) * i) + min_low;
@@ -278,5 +274,17 @@ void candlestick::printcandles(vector<candlestick> cdst, string side, string cur
     gotoxy(0, 29);
     cout << "Data Description:  ";
     cout << endl << candles;
-    SetConsoleTextAttribute(h, 7);
+    resetTextColor();
+}
+
+void setTextColorRed() {
+    printf("\033[0;31m"); // Set text color to red
+}
+
+void resetTextColor() {
+    printf("\033[0m"); // Reset text color to default
+}
+
+void setTextColorGreen() {
+    printf("\033[0;32m"); // Set text color to green
 }
