@@ -50,9 +50,9 @@ int main() {
 
         cd.printcandles(cdst, trade[c].substr(0, 3), trade[c].substr(8));
 
-        system("pause");
-        system("cls");
-
+        if(pauseExecution())
+            break;
+        clearScreen();
         for (int i = trade.size() - 1, k = 1; i >= 0; i--, k++) {
             cout << k << ". " << trade[i] << endl;
         }

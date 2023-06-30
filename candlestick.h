@@ -7,7 +7,6 @@
 #include <sstream>
 #include <algorithm>
 #include <map>
-#include <windows.h>
 using namespace std;
 
 vector<string> split(string line, char delimiter);
@@ -17,7 +16,8 @@ void printline(int xi, int yi, int width, double height);
 void resetTextColor();
 void setTextColorRed();
 void setTextColorGreen();
-
+int pauseExecution();
+void clearScreen();
 class exchangedata {
 	friend class candlestick;
 	string timestamp;

@@ -203,7 +203,7 @@ void candlestick::printcandles(vector<candlestick> cdst, string side, string cur
         return;
     }
 
-    system("cls");
+    clearScreen();
 
     // Printing horizontal lines
     for (int i = 0; i < 25; i++) {
@@ -287,4 +287,14 @@ void resetTextColor() {
 
 void setTextColorGreen() {
     printf("\033[0;32m"); // Set text color to green
+}
+int pauseExecution() {
+    int c;
+    cout<<"Enter 0 to continue, else exit: ";
+    cin>>c;
+    return c;
+}
+void clearScreen() {
+    printf("\033[2J");  // ANSI escape sequence to clear the entire screen
+    printf("\033[H");   // ANSI escape sequence to move the cursor to the top-left position
 }
