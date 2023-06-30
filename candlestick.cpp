@@ -1,5 +1,4 @@
 #include "candlestick.h"
-HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 
 // Function to split a string into tokens based on a delimiter
 vector<string> split(string line, char delimiter) {
@@ -23,12 +22,10 @@ vector<string> split(string line, char delimiter) {
 
 // Function to set the cursor position in the console
 void gotoxy(int x, int y) {
-    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-    COORD scrn;
-
-    scrn.X = x, scrn.Y = y;
-
-    SetConsoleCursorPosition(h, scrn);
+    initscr();  // Initialize ncurses
+    move(y, x); // Move the cursor to the specified coordinates
+    refresh();  // Refresh the screen
+    endwin();   // End ncurses
 }
 
 // Function to print a line in the text-based plot
