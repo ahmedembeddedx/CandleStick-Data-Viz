@@ -1,6 +1,6 @@
 #include "candlestick.h"
 
-// Function to split a string into tokens based on a delimiter
+// //Function to split a string into tokens based on a delimiter
 vector<string> split(string line, char delimiter) {
     vector<string> tokens;
     int i = 0;
