@@ -4,9 +4,14 @@
 
 Welcome to the Candlestick Data Visualization project! This project focuses on creating an interactive candlestick chart to visualize financial market data. The project is developed by [Ahmed](https://github.com/ahmedembeddedx/). You can find the project repository [here](https://github.com/ahmedembeddedx/CandleStick-Data-Viz).
 
+<a href="https://ibb.co/Qj36XdG"><img src="https://i.ibb.co/x8tM3HQ/img1.jpg" alt="img1" border="0"></a>
+<a href="https://ibb.co/jZbFjfj"><img src="https://i.ibb.co/CsmFS8S/img2.jpg" alt="img2" border="0"></a>
+<a href="https://ibb.co/CWbpTgP"><img src="https://i.ibb.co/nR7q59P/img3.jpg" alt="img3" border="0"></a>
+
 ## Dataset
 
 The dataset used for this project consists of financial market data, including open, close, high, and low prices for a specific asset over a given period. The data is preprocessed to ensure its suitability for candlestick chart visualization.
+
 
 ## Project Workflow
 
