@@ -46,6 +46,7 @@ public:
 	friend ostream& operator<<(ostream& fout, vector<candlestick> cdst);
 	void printcandles(vector <candlestick> cdst, string side, string currency);
 };
+
 /*This code is responsible for generating and printing candlestick charts based on exchangedata.
 It provides functionalities to compute candlestick data from exchangedata and display the charts.
 The candlestick class represents a single candlestick with attributes such as date, open, high, low, close, and name.
